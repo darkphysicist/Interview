@@ -4,8 +4,15 @@ import csv
 import pandas as pd
 import importlib
 import argparse
-parser = argparse
+parser = argparse.ArgumentParser()
 var = sys.argv[1]
+with open(var) as fp:
+            lines = fp.readlines()
+            header = lines[0]
+            lines = lines[2]
+            print (header)
+            print (lines)
+            
 importlib.import_module(var)
 var.to_csv('schedule.csv')
 colspecs = [(2, 20), (22, 62), (64, 72), (77, 85), (88, 93), (99, 107)}
